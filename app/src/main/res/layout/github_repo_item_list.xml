@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+  <data>
+    <variable
+        name="github"
+        type="com.sbnri.sbnriassignment.model.GithubRepoModel"/>
+
+  </data>
+
+      <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@{github.name}"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            bind:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/btnTaskContinue"
+            android:layout_width="0dp"
+            android:text="@{github.description}"
+           android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:maxLength="140"
+            android:paddingRight="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/grey"
+            android:layout_height="wrap_content"
+            bind:layout_constraintTop_toBottomOf="@+id/title"
+            tools:ignore="MissingConstraints" />
+          <TextView
+              android:id="@+id/openIssueCount"
+              android:layout_width="0dp"
+              android:text="@{`Issue Count: `+github.openIssuesCount}"
+              android:paddingBottom="5dp"
+              android:paddingLeft="10dp"
+              android:maxLength="140"
+              android:paddingRight="10dp"
+              android:textStyle="bold"
+              android:textColor="@color/grey"
+              android:layout_height="wrap_content"
+              bind:layout_constraintTop_toBottomOf="@+id/btnTaskContinue"
+              tools:ignore="MissingConstraints" />
+
+          <TextView
+              android:id="@+id/license"
+              android:layout_width="0dp"
+              android:text="@{github.license.name}"
+              android:paddingBottom="5dp"
+              android:paddingLeft="10dp"
+              android:maxLength="140"
+              android:paddingRight="10dp"
+              android:textStyle="bold"
+              android:textColor="@color/grey"
+              android:layout_height="wrap_content"
+              bind:layout_constraintTop_toBottomOf="@+id/openIssueCount"
+              tools:ignore="MissingConstraints" />
+
+
+      </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
